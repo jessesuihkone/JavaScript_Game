@@ -4,7 +4,7 @@ const ctx = canvas.getContext("2d");
 let x = 100;
 let y = 100;
 let radius = 20;
-let speed = 30;
+let speed = 10;
 
 let rightPressed = false;
 let leftPressed = false;
@@ -27,11 +27,14 @@ function boundryCheck(){
     }
     //down
     if(y > canvas.height - radius){
-        y = canvas.height - radius;
+        alert("Dont hit the wall!");
+        window.location.reload();
+       
     }
     //left
     if(x < radius) {
-        x = radius;
+        alert("Dont hit the wall!");
+        window.location.reload();
     }
     //right
     if(x > canvas.width - radius) {
@@ -41,7 +44,7 @@ function boundryCheck(){
 
 function inputs() {
     if(upPressed) {
-        y = y- speed;
+        y = y - speed;
     }
     if(downPressed) {
         y = y + speed;
@@ -55,7 +58,7 @@ function inputs() {
 }
 
 function drawGreenBlob() {
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "white"
     if (upPressed) {
         ctx.fillStyle = "red";
     }
